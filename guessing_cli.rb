@@ -1,20 +1,22 @@
 # Code your solution here!
 
 def run_guessing_game
-  
-  loop do
-  puts "Guess a number between 1 and 6."
-  guess = gets.chomp
-  num_to_guess = rand(6)
-  
-  if guess.to_i == num_to_guess.to_f 
-    puts "You guessed the correct number!"
-elsif guess.to_i != num_to_guess.to_f && guess != "exit"
-  puts "The computer guessed #{num_to_guess.to_f}"
-  elsif guess == "exit"
-  puts "Goodbye!"
-end
+  puts "Guess a number between 1 and 6.\n"
+  number = rand(1..6).to_s
 
-  break if guess == "exit"
-end
+  input = gets.chomp
+  
+  while input != "exit" do
+    if input == number
+      puts "You guessed the correct number!"
+    else
+      puts "The computer guessed #{number}."
+    end
+
+    puts "Guess a number between 1 and 6.\n"
+    number = rand(1..6).to_s
+    input = gets.chomp
+  end
+
+  puts "Goodbye!"
 end
